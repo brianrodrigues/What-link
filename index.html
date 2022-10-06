@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Link</title>
+    <link rel="stylesheet" href="/src/style/home.css" />
+  </head>
+  <body>
+    <div class="main">
+      <img src="src/assets/logo.webp" alt="Logo whatsapp" />
+      <h3 data-text="Por favor, aguarde...">Por favor, aguarde...</h3>
+    </div>
+    <footer>
+      <p>
+        Copyright 2022 -
+        <a href="https://github.com/brianrodrigues">Brian Rodrigues</a>
+      </p>
+    </footer>
+    <script>
+        //https://api.whatsapp.com/send?phone=000000000&text=Ol%C3%A1%20vim%20do%20anuncio
+      var url_string = window.location.href;
+      var url = new URL(url_string);
+      var phone = url.searchParams.get("phone");
+      var text = url.searchParams.get("text");
+      var timer = url.searchParams.get("timer");
+      var UrlApi = `https://api.whatsapp.com/send?phone=${phone}&text=${text}`
+
+      setTimeout(()=>{
+        window.location.href = UrlApi;
+      },timer)
+    </script>
+  </body>
+</html>
